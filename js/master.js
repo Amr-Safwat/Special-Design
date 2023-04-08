@@ -9,5 +9,5 @@ for(let i = 1; i<= 5;i++) {
 
 setInterval(() => {
   background.style.backgroundImage = `url('${imgs[Math.floor(Math.random() * imgs.length)]}')`;
-}, 60000);
+}, 10000);
 
