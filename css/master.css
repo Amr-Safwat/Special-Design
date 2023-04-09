@@ -4,6 +4,30 @@
 body {
   font-family: 'Open Sans', sans-serif;
 }
+.settings-box {
+  position: fixed;
+  top: 0;
+  left: -200px;
+  background-color: white;
+  width: 200px;
+  min-height: 100vh;
+  z-index: 1000;
+  transition: .3s;
+}
+.settings-box.open {
+  left: 0;
+}
+.settings-box .icon-ele {
+  position: absolute;
+  right: -32px;
+  top: 100px;
+  background-color: white;
+  cursor: pointer;
+}
+.settings-box .icon {
+  padding: 8px;
+}
+.settings-box .settings-container {}
 /* Landing Page */
 .landing-page {
   min-height: 100vh;

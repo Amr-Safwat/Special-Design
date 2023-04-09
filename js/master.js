@@ -1,3 +1,11 @@
+let settingsBox = document.querySelector('.settings-box');
+let icon = document.querySelector('.icon');
+
+icon.onclick = function() {
+  settingsBox.classList.toggle('open');
+  this.classList.toggle('fa-spin')
+}
+
 let background = document.querySelector('.landing-page');
 let image = new Image();
 
