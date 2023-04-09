@@ -1,6 +1,9 @@
 :root {
   --main-color: #FF9800;
 }
+* {
+  box-sizing: border-box;
+}
 body {
   font-family: 'Open Sans', sans-serif;
 }
@@ -27,7 +30,50 @@ body {
 .settings-box .icon {
   padding: 8px;
 }
-.settings-box .settings-container {}
+.settings-box .option-box {
+  padding: 10px;
+  text-align: center;
+  background-color: #eee;
+  margin: 10px;
+}
+.settings-box .option-box h4 {
+  margin: 0;
+  color: #666;
+}
+.settings-box .option-box .colors-list {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 10px 0 0;
+}
+.settings-box .option-box .colors-list li {
+  width: 20px;
+  height: 20px;
+  background-color: #333;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: .5;
+  display: inline-block;
+}
+.settings-box .option-box .colors-list li.active {
+  opacity: 1;
+  border: 2px solid white;
+}
+.settings-box .option-box .colors-list li:first-child {
+  background-color: #FF9800;
+}
+.settings-box .option-box .colors-list li:nth-child(2) {
+  background-color: #E91E63;
+}
+.settings-box .option-box .colors-list li:nth-child(3) {
+  background-color: #009688;
+}
+.settings-box .option-box .colors-list li:nth-child(4) {
+  background-color: #03A9F4;
+}
+.settings-box .option-box .colors-list li:nth-child(5) {
+  background-color: #4CAF50;
+}
 /* Landing Page */
 .landing-page {
   min-height: 100vh;
@@ -85,6 +131,7 @@ body {
   transform: translate(-50%,-50%);
   text-align: center;
   z-index: 2;
+  width: 80%;
 }
 .landing-page .intro-text h1{
   font-size: 34px;
