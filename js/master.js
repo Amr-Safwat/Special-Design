@@ -36,8 +36,32 @@ colorsLi.forEach(li => {
   })
 });
 
+let bgOption = true;
+
+let bgInterval;
+
+// Switch Random Background Option
+let randomBgEl = document.querySelectorAll('.random-backgrounds span');
+
+randomBgEl.forEach(span => {
+  span.addEventListener('click',(e)=>{
+    // Remove Active Class
+    randomBgEl.forEach((span)=>{
+      span.classList.remove('active');
+    });
+    // Add An Active Class On The Clicked Element
+    e.target.classList.add('active');
+    if(e.target.dataset.option === 'yes') {
+      bgOption = true;
+      randomizeImgs();
+    }else {
+      bgOption = false;
+      clearInterval(bgInterval);
+    }
+  })
+});
+
 let background = document.querySelector('.landing-page');
-let image = new Image();
 
 let imgs = [];
 
@@ -45,7 +69,15 @@ for(let i = 1; i<= 5;i++) {
   imgs.push(`../imgs/0${i}.jpg`);
 }
 
-setInterval(() => {
-  background.style.backgroundImage = `url('${imgs[Math.floor(Math.random() * imgs.length)]}')`;
-}, 10000);
+// put the Interval In Function
+function randomizeImgs() {
+  if(bgOption === true) {
+    bgInterval = setInterval(() => {
+      background.style.backgroundImage = `url('${imgs[Math.floor(Math.random() * imgs.length)]}')`;
+    }, 1000);
+  } else{
+    clearInterval(bgInterval);
+  }
+}
 
+randomizeImgs();
