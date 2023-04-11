@@ -36,12 +36,33 @@ colorsLi.forEach(li => {
   })
 });
 
+// Switch Random Background Option
+let randomBgEl = document.querySelectorAll('.random-backgrounds span');
+
 let bgOption = true;
 
 let bgInterval;
 
-// Switch Random Background Option
-let randomBgEl = document.querySelectorAll('.random-backgrounds span');
+// get value from local storage
+let bgLocal = localStorage.option;
+
+if (bgLocal !== null) {
+  if(localStorage.option === 'true') {
+    bgOption = true;
+  }else {
+    bgOption = false;
+  }
+  randomBgEl.forEach((span)=>{
+    span.classList.remove('active');
+    if(localStorage.option === 'true') {
+      document.querySelector('.yes').classList.add('active');
+    }else {
+      document.querySelector('.no').classList.add('active');
+    }
+  });
+}else {
+
+}
 
 randomBgEl.forEach(span => {
   span.addEventListener('click',(e)=>{
@@ -54,10 +75,13 @@ randomBgEl.forEach(span => {
     if(e.target.dataset.option === 'yes') {
       bgOption = true;
       randomizeImgs();
+    localStorage.setItem('option', true);
     }else {
       bgOption = false;
       clearInterval(bgInterval);
+    localStorage.setItem('option', false);
     }
+    // Store The Value In Local Storage
   })
 });
 
