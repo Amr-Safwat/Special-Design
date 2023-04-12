@@ -7,6 +7,12 @@
 body {
   font-family: 'Open Sans', sans-serif;
 }
+.container {
+  width: 1170px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: auto;
+}
 .settings-box {
   position: fixed;
   top: 0;
@@ -163,3 +169,32 @@ body {
   margin: 0;
 }
 /* Landing Page */
+/* About Us */
+.about {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+}
+.about .info-box {
+  flex: 1;
+  padding: 30px;
+}
+.about .info-box h2{
+  color: var(--main-color);
+  font-weight: bold;
+  font-size: 30px;
+  margin: 0 0 10px;
+}
+.about .info-box p {
+  color: #767676;
+  line-height: 1.8;
+  margin: 0;
+}
+.about .img-box {
+  flex: 1;
+  text-align: center;
+}
+.about .img-box img {
+  width: 250px;
+}
+/* About Us */

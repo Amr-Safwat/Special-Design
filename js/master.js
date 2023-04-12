@@ -98,7 +98,7 @@ function randomizeImgs() {
   if(bgOption === true) {
     bgInterval = setInterval(() => {
       background.style.backgroundImage = `url('${imgs[Math.floor(Math.random() * imgs.length)]}')`;
-    }, 1000);
+    }, 10000);
   } else{
     clearInterval(bgInterval);
   }
