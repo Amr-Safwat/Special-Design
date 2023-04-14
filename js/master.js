@@ -119,9 +119,65 @@ let spans = document.querySelectorAll('.skill-prog span');
 
 window.onscroll = function () {
 	if (window.scrollY >= skills.offsetTop) {
-		spans.forEach((span)=>{
-      span.style.width = span.dataset.width;
-    })
+		spans.forEach((span) => {
+			span.style.width = span.dataset.width;
+		});
 	}
 };
 // Skills Section
+
+// Create Popup With The Image
+let imgsGallery = document.querySelectorAll('.imgs-box img');
+
+imgsGallery.forEach((img) => {
+	img.addEventListener('click', (e) => {
+		// Create Overlay Element
+		let overlay = document.createElement('div');
+
+		overlay.className = 'overlay';
+
+		document.body.appendChild(overlay);
+
+		// Create Popup Box
+		let popup = document.createElement('div');
+
+		popup.className = 'popup';
+
+		// check if alt is not empty
+		if(img.alt !== null) {
+			let head = document.createElement('h3');
+
+			let txt = document.createTextNode(img.alt);
+
+			head.appendChild(txt);
+
+			popup.appendChild(head);
+		}
+
+		// Create Image Element
+		let popImg = document.createElement('img');
+
+		popImg.src = img.src;
+
+		popup.appendChild(popImg);
+
+		document.body.appendChild(popup);
+
+		// Create Close Buttton
+		let close = document.createElement('i');
+		close.className = 'fa-solid fa-xmark close';
+
+		popup.appendChild(close);
+	});
+});
+
+// Close Popup Box
+document.addEventListener('click',function (e) {
+	// check If The Element Clicked has close Class
+	if(e.target.className == 'fa-solid fa-xmark close') {
+		// Remove The Overlay
+		e.target.parentElement.previousSibling.remove();
+		// Remove The Current Popup
+		e.target.parentNode.remove();
+	}
+});
