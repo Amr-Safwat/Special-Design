@@ -97,6 +97,50 @@ body {
 .settings-box .random-backgrounds .active {
 	opacity: 1;
 }
+/* Nav Bullets */
+.nav-bullets {
+	position: fixed;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 50px;
+	z-index: 1000;
+}
+.nav-bullets .bullet {
+	width: 20px;
+	height: 20px;
+	border: 3px solid var(--main-color);
+	margin: 20px auto;
+	border-radius: 50%;
+	cursor: pointer;
+	position: relative;
+}
+.nav-bullets .bullet::before {
+	content: attr(data-name);
+	position: absolute;
+	top: -6px;
+	left: -125px;
+	width: 100px;
+	padding: 5px;
+	background: var(--main-color);
+	text-align: center;
+	display: none;
+}
+.nav-bullets .bullet::after {
+	content: '';
+	position: absolute;
+	top: -2px;
+	left: -15px;
+	border-width: 10px;
+	border-style: solid;
+	border-color: transparent transparent transparent var(--main-color);
+	display: none;
+}
+.nav-bullets .bullet:hover::before,
+.nav-bullets .bullet:hover::after {
+	display: block;
+}
+/* Nav Bullets */
 /* Landing Page */
 .landing-page {
 	min-height: 100vh;

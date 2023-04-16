@@ -181,3 +181,14 @@ document.addEventListener('click',function (e) {
 		e.target.parentNode.remove();
 	}
 });
+
+// Select All Bullets
+const bullets = document.querySelectorAll('.bullet');
+
+bullets.forEach((bullet)=>{
+	bullet.addEventListener('click',(e)=>{
+		document.querySelector(e.target.dataset.section).scrollIntoView({
+			behavior: 'smooth'
+		})
+	})
+})
