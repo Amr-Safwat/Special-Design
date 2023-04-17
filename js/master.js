@@ -144,7 +144,7 @@ imgsGallery.forEach((img) => {
 		popup.className = 'popup';
 
 		// check if alt is not empty
-		if(img.alt !== null) {
+		if (img.alt !== null) {
 			let head = document.createElement('h3');
 
 			let txt = document.createTextNode(img.alt);
@@ -172,9 +172,9 @@ imgsGallery.forEach((img) => {
 });
 
 // Close Popup Box
-document.addEventListener('click',function (e) {
+document.addEventListener('click', function (e) {
 	// check If The Element Clicked has close Class
-	if(e.target.className == 'fa-solid fa-xmark close') {
+	if (e.target.className == 'fa-solid fa-xmark close') {
 		// Remove The Overlay
 		e.target.parentElement.previousSibling.remove();
 		// Remove The Current Popup
@@ -182,13 +182,20 @@ document.addEventListener('click',function (e) {
 	}
 });
 
-// Select All Bullets
+// Select All Bullets And Links
 const bullets = document.querySelectorAll('.bullet');
+const allLinks = document.querySelectorAll('.links a');
 
-bullets.forEach((bullet)=>{
-	bullet.addEventListener('click',(e)=>{
-		document.querySelector(e.target.dataset.section).scrollIntoView({
-			behavior: 'smooth'
-		})
-	})
-})
+function scrollToSomewhere(element) {
+	element.forEach((ele) => {
+		ele.addEventListener('click', (e) => {
+			e.preventDefault();
+			document.querySelector(e.target.dataset.section).scrollIntoView({
+				behavior: 'smooth'
+			});
+		});
+	});
+}
+
+scrollToSomewhere(bullets);
+scrollToSomewhere(allLinks);
