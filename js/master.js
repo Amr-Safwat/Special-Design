@@ -25,12 +25,8 @@ let colorsLi = document.querySelectorAll('.colors-list li');
 
 colorsLi.forEach((li) => {
 	li.addEventListener('click', (e) => {
-		// Remove Active Class
-		colorsLi.forEach((li) => {
-			li.classList.remove('active');
-		});
-		// Add An Active Class On The Clicked Element
-		e.target.classList.add('active');
+
+		handleActive(e);
 		// Set Color On Root
 		document.documentElement.style.setProperty(
 			'--main-color',
@@ -72,11 +68,8 @@ if (bgLocal !== null) {
 randomBgEl.forEach((span) => {
 	span.addEventListener('click', (e) => {
 		// Remove Active Class
-		randomBgEl.forEach((span) => {
-			span.classList.remove('active');
-		});
-		// Add An Active Class On The Clicked Element
-		e.target.classList.add('active');
+		handleActive(e);
+		
 		if (e.target.dataset.option === 'yes') {
 			bgOption = true;
 			randomizeImgs();
@@ -199,3 +192,12 @@ function scrollToSomewhere(element) {
 
 scrollToSomewhere(bullets);
 scrollToSomewhere(allLinks);
+
+function handleActive(ev) {
+		// Remove Active Class
+		colorsLi.forEach((li) => {
+			li.classList.remove('active');
+		});
+		// Add An Active Class On The Clicked Element
+		ev.target.classList.add('active');
+}
