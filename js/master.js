@@ -58,9 +58,9 @@ if (bgLocal !== null) {
 	randomBgEl.forEach((span) => {
 		span.classList.remove('active');
 		if (localStorage.option === 'true') {
-			document.querySelector('.random-background .yes').classList.add('active');
+			document.querySelector('.yes').classList.add('active');
 		} else {
-			document.querySelector('.random-background .no').classList.add('active');
+			document.querySelector('.no').classList.add('active');
 		}
 	});
 } else {

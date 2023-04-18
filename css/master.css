@@ -550,3 +550,63 @@ body {
 	color: #777;
 }
 /* Testimoials */
+/* Contact Us */
+.contact {
+	min-height: 600px;
+	background-image: url('../imgs/contact.png');
+	background-size: cover;
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+.contact h2 {
+	color: var(--main-color);
+	font-weight: bold;
+	font-size: 30px;
+	margin: 0 0 50px;
+	text-align: center;
+}
+.contact form {
+	overflow: hidden;
+	max-width: 800px;
+	margin: auto;
+}
+.contact form .left {
+	float: left;
+	width: 49%;
+}
+.contact form .right {
+	float: right;
+	width: 49%;
+}
+.contact form input:not([type="submit"]),
+.contact form textarea {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #ccc;
+}
+.contact form input:not([type="submit"]):focus,
+.contact form textarea:focus {
+	outline: 1px solid var(--main-color);
+}
+.contact form input {
+	height: 40px;
+}
+.contact form textarea {
+	height: 150px;
+}
+.contact form input[type="submit"] {
+	width: 100%;
+	padding: 10px;
+	background-color: var(--main-color);
+	color: white;
+	cursor: pointer;
+	border-color: transparent;
+}
+.contact form input:not([type="submit"])::placeholder,
+.contact form textarea:focus::placeholder {
+	opacity: 0;
+	transition: .3s;
+}
+/* Contact Us */
