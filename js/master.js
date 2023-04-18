@@ -1,8 +1,10 @@
+let mainColor = localStorage.getItem('color');
+
 // Check If There Is Local Storage Color
-if (localStorage.color !== null) {
+if (mainColor !== null) {
 	document.documentElement.style.setProperty(
 		'--main-color',
-		localStorage.color
+		mainColor
 	);
 	// Remove Active Class
 	document.querySelectorAll('.colors-list li').forEach((li) => {
@@ -25,7 +27,6 @@ let colorsLi = document.querySelectorAll('.colors-list li');
 
 colorsLi.forEach((li) => {
 	li.addEventListener('click', (e) => {
-
 		handleActive(e);
 		// Set Color On Root
 		document.documentElement.style.setProperty(
@@ -46,7 +47,7 @@ let bgOption = true;
 let bgInterval;
 
 // get value from local storage
-let bgLocal = localStorage.option;
+let bgLocal = localStorage.getItem('option');
 
 if (bgLocal !== null) {
 	if (localStorage.option === 'true') {
@@ -57,9 +58,9 @@ if (bgLocal !== null) {
 	randomBgEl.forEach((span) => {
 		span.classList.remove('active');
 		if (localStorage.option === 'true') {
-			document.querySelector('.yes').classList.add('active');
+			document.querySelector('.random-background .yes').classList.add('active');
 		} else {
-			document.querySelector('.no').classList.add('active');
+			document.querySelector('.random-background .no').classList.add('active');
 		}
 	});
 } else {
@@ -184,7 +185,7 @@ function scrollToSomewhere(element) {
 		ele.addEventListener('click', (e) => {
 			e.preventDefault();
 			document.querySelector(e.target.dataset.section).scrollIntoView({
-				behavior: 'smooth'
+				behavior: 'smooth',
 			});
 		});
 	});
@@ -194,12 +195,12 @@ scrollToSomewhere(bullets);
 scrollToSomewhere(allLinks);
 
 function handleActive(ev) {
-		// Remove Active Class
-		ev.target.parentElement.querySelectorAll('.active').forEach((element) => {
-			element.classList.remove('active');
-		});
-		// Add An Active Class On The Clicked Element
-		ev.target.classList.add('active');
+	// Remove Active Class
+	ev.target.parentElement.querySelectorAll('.active').forEach((element) => {
+		element.classList.remove('active');
+	});
+	// Add An Active Class On The Clicked Element
+	ev.target.classList.add('active');
 }
 
 // Show And Hidden Bullets
@@ -209,11 +210,11 @@ let navBullets = document.querySelector('.nav-bullets');
 // Add To Local Storage
 let bulletItem = localStorage.getItem('bt_option');
 
-if(bulletItem !== null){
+if (bulletItem !== null) {
 	bulletsSpan.forEach((span) => {
 		span.classList.remove('active');
 	});
-	if(bulletItem === 'block') {
+	if (bulletItem === 'block') {
 		navBullets.style.display = 'block';
 		document.querySelector('.bullets-option .yes').classList.add('active');
 	} else {
@@ -222,9 +223,9 @@ if(bulletItem !== null){
 	}
 }
 
-bulletsSpan.forEach((span)=>{
-	span.addEventListener('click', (e)=>{
-		if(span.dataset.option === 'yes') {
+bulletsSpan.forEach((span) => {
+	span.addEventListener('click', (e) => {
+		if (span.dataset.option === 'yes') {
 			navBullets.style.display = 'block';
 			localStorage.setItem('bt_option', 'block');
 		} else {
@@ -232,5 +233,15 @@ bulletsSpan.forEach((span)=>{
 			localStorage.setItem('bt_option', 'none');
 		}
 		handleActive(e);
-	})
-})
+	});
+});
+
+// Reset Button
+document.querySelector('.reset-options').onclick = function () {
+	localStorage.clear();
+
+	// If You Saved Other Data You Can Use This Statment
+	// localStorage.removeItem("write item here");
+
+	location.reload();
+};

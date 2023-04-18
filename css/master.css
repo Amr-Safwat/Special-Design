@@ -98,6 +98,16 @@ body {
 .settings-box .option-box .active {
 	opacity: 1;
 }
+.settings-box .reset-options {
+	margin: 10px;
+	padding: 10px;
+	display: block;
+	width: 90%;
+	background-color: #F44336;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+}
 /* Nav Bullets */
 .nav-bullets {
 	position: fixed;
