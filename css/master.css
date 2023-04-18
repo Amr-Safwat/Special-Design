@@ -95,7 +95,7 @@ body {
 	opacity: 0.5;
 	cursor: pointer;
 }
-.settings-box .random-backgrounds .active {
+.settings-box .option-box .active {
 	opacity: 1;
 }
 /* Nav Bullets */

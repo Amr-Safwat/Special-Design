@@ -69,7 +69,7 @@ randomBgEl.forEach((span) => {
 	span.addEventListener('click', (e) => {
 		// Remove Active Class
 		handleActive(e);
-		
+
 		if (e.target.dataset.option === 'yes') {
 			bgOption = true;
 			randomizeImgs();
@@ -195,9 +195,42 @@ scrollToSomewhere(allLinks);
 
 function handleActive(ev) {
 		// Remove Active Class
-		colorsLi.forEach((li) => {
-			li.classList.remove('active');
+		ev.target.parentElement.querySelectorAll('.active').forEach((element) => {
+			element.classList.remove('active');
 		});
 		// Add An Active Class On The Clicked Element
 		ev.target.classList.add('active');
 }
+
+// Show And Hidden Bullets
+let bulletsSpan = document.querySelectorAll('.bullets-option span');
+let navBullets = document.querySelector('.nav-bullets');
+
+// Add To Local Storage
+let bulletItem = localStorage.getItem('bt_option');
+
+if(bulletItem !== null){
+	bulletsSpan.forEach((span) => {
+		span.classList.remove('active');
+	});
+	if(bulletItem === 'block') {
+		navBullets.style.display = 'block';
+		document.querySelector('.bullets-option .yes').classList.add('active');
+	} else {
+		navBullets.style.display = 'none';
+		document.querySelector('.bullets-option .no').classList.add('active');
+	}
+}
+
+bulletsSpan.forEach((span)=>{
+	span.addEventListener('click', (e)=>{
+		if(span.dataset.option === 'yes') {
+			navBullets.style.display = 'block';
+			localStorage.setItem('bt_option', 'block');
+		} else {
+			navBullets.style.display = 'none';
+			localStorage.setItem('bt_option', 'none');
+		}
+		handleActive(e);
+	})
+})
