@@ -604,9 +604,31 @@ body {
 	cursor: pointer;
 	border-color: transparent;
 }
-.contact form input:not([type="submit"])::placeholder,
+.contact form input:not([type="submit"]):focus::placeholder,
 .contact form textarea:focus::placeholder {
 	opacity: 0;
 	transition: .3s;
 }
 /* Contact Us */
+/* Grid System */
+@media (min-width: 576px) { /*Small Devices*/
+	.container {
+		width: 540px;
+	}
+}
+@media (min-width: 768px) { /*Medium DEvices*/
+	.container {
+		width: 720px;
+	}
+}
+@media (min-width: 992px) { /*Desktops*/
+	.container {
+		width: 930px;
+	}
+}
+@media (min-width: 1200px) { /*Large Screen*/
+	.container {
+		width: 1140px;
+	}
+}
+/* Grid System */
