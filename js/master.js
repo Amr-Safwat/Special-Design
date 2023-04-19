@@ -14,6 +14,30 @@ if (mainColor !== null) {
 	});
 }
 
+// click on toggle menu Icon
+let menu = document.querySelector('.menu');
+let after = window.getComputedStyle(menu, '::after');
+let links = document.querySelector('.links');
+
+menu.onclick = function (e) {
+	e.stopPropagation();
+	links.classList.toggle('show');
+	menu.classList.toggle('menu-active');
+}
+// Click AnyWhere To Close Links List
+window.addEventListener('click',(e)=> {
+	if(e.target !== menu && e.target !== links) {
+		if(links.classList.contains('show')) {
+			links.classList.remove('show');
+			menu.classList.remove('menu-active');
+		}
+	}
+});
+
+links.onclick = function (e) {
+	e.stopPropagation();
+}
+
 let settingsBox = document.querySelector('.settings-box');
 let icon = document.querySelector('.icon');
 
