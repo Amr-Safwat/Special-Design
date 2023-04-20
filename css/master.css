@@ -175,6 +175,7 @@ body {
 	display: flex;
 	justify-content: space-between;
 	padding: 10px;
+	z-index: 1000;
 }
 .landing-page .header .logo {
 	width: 300px;
@@ -258,6 +259,11 @@ body {
 	font-size: 34px;
 	margin-bottom: 10px;
 }
+@media (max-width: 575px) {
+	.landing-page .intro-text {
+		width: 95%;
+	}
+}
 .landing-page .intro-text h1 span {
 	color: var(--main-color);
 }
@@ -272,6 +278,12 @@ body {
 	padding-top: 50px;
 	padding-bottom: 50px;
 	display: flex;
+}
+@media (max-width: 767px) {
+	.about {
+		display: inline;
+		text-align: center;
+	}
 }
 .about .info-box {
 	flex: 1;
@@ -321,6 +333,15 @@ body {
 	text-align: center;
 	line-height: 30px;
 }
+@media (max-width: 575px) {
+	.skills .skill-box {
+		display: block;
+	}
+	.skills .skill-box .skill-name {
+		width: 100%;
+		margin-bottom: 15px;
+	}
+}
 .skills .skill-box .skill-prog {
 	background-color: #f6f6f6;
 	width: 100%;
@@ -343,6 +364,7 @@ body {
 .gallery {
 	padding-top: 50px;
 	padding-bottom: 50px;
+	text-align: center;
 }
 .gallery h2 {
 	color: var(--main-color);
@@ -361,6 +383,11 @@ body {
 	border: 1px solid #ccc;
 	margin: 5px;
 	cursor: pointer;
+}
+@media (max-width: 575px) {
+	.gallery .imgs-box img {
+		width: 250px;
+	}
 }
 .overlay {
 	position: fixed;
@@ -474,6 +501,12 @@ body {
 	padding: 20px;
 	background-color: white;
 }
+@media (max-width: 575px) {
+	.time-line .left,
+	.time-line .right {
+		width: 100%;
+	}
+}
 .time-line .content h3{
 	font-weight: bold;
 	color: var(--main-color);
@@ -523,6 +556,11 @@ body {
 	text-align: center;
 	margin-bottom: 40px;
 }
+@media (max-width: 575px) {
+	.features .feat-box {
+		width: 100%;
+	}
+}
 .features .feat-box img {
 	width: 100px;
 }
@@ -569,6 +607,14 @@ body {
 	background-color: white;
 	padding: 20px;
 	width: calc(100% / 3);
+}
+@media (max-width: 575px) {
+	.testimonials .container {
+		flex-direction: column;
+	}
+	.testimonials .container .ts-box {
+		width: 100%;
+	}
 }
 .testimonials .ts-box > p {
 	font-size: 18px;
@@ -651,6 +697,13 @@ body {
 .contact form textarea:focus::placeholder {
 	opacity: 0;
 	transition: .3s;
+}
+@media (max-width: 575px) {
+	.contact form .left,
+	.contact form .right {
+		float: none;
+		width: 100%;
+	}
 }
 /* Contact Us */
 /* Grid System */
