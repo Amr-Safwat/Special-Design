@@ -170,12 +170,11 @@ body {
 }
 .landing-page .header {
 	color: white;
-	z-index: 2;
+	z-index: 3;
 	position: relative;
 	display: flex;
 	justify-content: space-between;
 	padding: 10px;
-	z-index: 1000;
 }
 .landing-page .header .logo {
 	width: 300px;
