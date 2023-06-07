@@ -2,10 +2,7 @@ let mainColor = localStorage.getItem('color');
 
 // Check If There Is Local Storage Color
 if (mainColor !== null) {
-	document.documentElement.style.setProperty(
-		'--main-color',
-		mainColor
-	);
+	document.documentElement.style.setProperty('--main-color', mainColor);
 	// Remove Active Class
 	document.querySelectorAll('.colors-list li').forEach((li) => {
 		li.classList.remove('active');
@@ -23,11 +20,11 @@ menu.onclick = function (e) {
 	e.stopPropagation();
 	links.classList.toggle('show');
 	menu.classList.toggle('menu-active');
-}
+};
 // Click AnyWhere To Close Links List
-window.addEventListener('click',(e)=> {
-	if(e.target !== menu && e.target !== links) {
-		if(links.classList.contains('show')) {
+window.addEventListener('click', (e) => {
+	if (e.target !== menu && e.target !== links) {
+		if (links.classList.contains('show')) {
 			links.classList.remove('show');
 			menu.classList.remove('menu-active');
 		}
@@ -36,7 +33,7 @@ window.addEventListener('click',(e)=> {
 
 links.onclick = function (e) {
 	e.stopPropagation();
-}
+};
 
 let settingsBox = document.querySelector('.settings-box');
 let icon = document.querySelector('.icon');
@@ -129,6 +126,17 @@ function randomizeImgs() {
 	}
 }
 
+// Click On Images To Change The Background
+let images = document.querySelectorAll('.bg-options img');
+
+images.forEach((img) => {
+	// img.onclick = () => {
+	// 	console.log(`ulr(..${img.src})`);
+	// }
+	img.addEventListener('click', (e) => {
+		background.style.backgroundImage = `url('${e.target.src}')`;
+	})
+})
 randomizeImgs();
 
 // Skills Section
@@ -257,6 +265,55 @@ bulletsSpan.forEach((span) => {
 			localStorage.setItem('bt_option', 'none');
 		}
 		handleActive(e);
+	});
+});
+
+// Header Scrolling
+let headSpan = document.querySelectorAll('.header-option span');
+let header = document.querySelector('.header');
+
+// get Value From Local Storage
+let scrollingValue = localStorage.getItem('scroll-option');
+
+if (scrollingValue !== null) {
+	headSpan.forEach((span) => {
+		span.classList.remove('active');
+		span.dataset.option === localStorage.getItem('scroll-option')
+			? span.classList.add('active')
+			: '';
+	});
+
+	if (scrollingValue === 'yes') {
+		header.classList.add('active-header');
+		window.onscroll = function () {
+			if (this.scrollY > 10) {
+				header.style.backgroundColor = 'rgb(255 255 255 / 50%)';
+			} else {
+				header.style.backgroundColor = 'transparent';
+			}
+		};
+	} else {
+		header.classList.remove('active-header');
+	}
+}
+
+headSpan.forEach((span) => {
+	span.addEventListener('click', (e) => {
+		handleActive(e);
+		if (e.target.dataset.option === 'yes') {
+			localStorage.setItem('scroll-option', 'yes');
+			header.classList.add('active-header');
+			window.onscroll = function () {
+				if (this.scrollY > 10) {
+					header.style.backgroundColor = 'rgb(255 255 255 / 50%)';
+				} else {
+					header.style.backgroundColor = 'transparent';
+				}
+			};
+		} else {
+			localStorage.setItem('scroll-option', 'no');
+			header.classList.remove('active-header');
+		}
 	});
 });
 
